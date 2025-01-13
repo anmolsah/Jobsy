@@ -1,7 +1,12 @@
 import "./App.css";
+import { Button } from "./components/ui/button";
 
 function App() {
-  return <div>new project started!!</div>;
+  return (
+    <div>
+      <Button>Login</Button>
+    </div>
+  );
 }
 
 export default App;
