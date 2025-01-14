@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import { Button } from "./components/ui/button";
 import AppLayout from "./layout/AppLayout";
 import LandingPage from "./pages/LandingPage";
+import OnBoarding from "./pages/OnBoarding";
 
 function App() {
   const router = createBrowserRouter([
@@ -12,6 +12,10 @@ function App() {
         {
           path: "/",
           element: <LandingPage />,
+        },
+        {
+          path: "/onboarding",
+          element: <OnBoarding />,
         },
       ],
     },
