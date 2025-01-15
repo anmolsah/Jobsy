@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <>
+      <nav>
+        <Link>
+          <img src="/jobsy-logo.png" alt="Jobsy" />
+        </Link>
+      </nav>
+    </>
+  );
+};
 
-export default Header
+export default Header;
