@@ -21,9 +21,8 @@ const LandingPage = () => {
     <main className="flex flex-col gap-10 sm:gap-20 py-10 sm:py-20">
       <section className="text-center">
         <h1 className="flex flex-col items-center justify-center gradient-title text-4xl font-extrabold sm:text-6xl lg:text-8xl tracking-tighter py-4">
-          Find Your Dream Job{" "}
-          <span className="flex items-center gap-2 sm:gap-6">
-            {/* with */}
+          Find Your Dream Job with
+          <span className="flex items-center py-4 gap-2 sm:gap-6">
             <img
               src="/jobsy-logo01.svg"
               alt="Jobsy"
