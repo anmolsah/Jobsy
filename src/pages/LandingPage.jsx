@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -74,7 +80,25 @@ const LandingPage = () => {
       />
 
       {/* <img src="/jobsy-banner01.webp" alt="banner" /> */}
-      <section>{/**cards */}</section>
+      <section className="grid grid-col-1 md:grid-cols-2 gap-4">
+        {/**cards */}
+        <Card>
+          <CardHeader>
+            <CardTitle>For Job Seekers</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Card Title</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+        </Card>
+      </section>
 
       {/**acoordian */}
     </main>
