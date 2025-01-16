@@ -50,10 +50,7 @@ const LandingPage = () => {
       </div>
 
       {/**carousel */}
-      <Carousel
-        plugins={[Autoplay({ delay: 2000 })]}
-        className="w-full py-10"
-      >
+      <Carousel plugins={[Autoplay({ delay: 2000 })]} className="w-full py-10">
         <CarouselContent className=" flex gap-5 sm:gap-20 items-center">
           {companies.map(({ id, name, path }) => {
             return (
@@ -70,6 +67,13 @@ const LandingPage = () => {
       </Carousel>
 
       {/**banner */}
+      <img
+        src="/jobsy-banner.webp"
+        alt="banner"
+        className="w-[1300px] mx-auto rounded-lg shadow-lg"
+      />
+
+      {/* <img src="/jobsy-banner01.webp" alt="banner" /> */}
       <section>{/**cards */}</section>
 
       {/**acoordian */}
