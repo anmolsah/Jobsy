@@ -41,6 +41,8 @@ const LandingPage = () => {
         </Link>
       </div>
 
+      {/**carousel */}
+
       {/**banner */}
       <section>{/**cards */}</section>
 
