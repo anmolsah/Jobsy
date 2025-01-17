@@ -15,6 +15,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import companies from "../data/companies.json";
 import Autoplay from "embla-carousel-autoplay";
+import faq from "../data/faq.json";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const LandingPage = () => {
   return (
@@ -102,6 +109,16 @@ const LandingPage = () => {
       </section>
 
       {/**acoordian */}
+      <Accordion className="px-20" type="single" collapsible>
+        {faq.map((fq, index) => {
+          return (
+            <AccordionItem key={index} value={`item-${index + 1}`}>
+              <AccordionTrigger>{fq.question}</AccordionTrigger>
+              <AccordionContent>{fq.answer}</AccordionContent>
+            </AccordionItem>
+          );
+        })}
+      </Accordion>
     </main>
   );
 };
