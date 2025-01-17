@@ -79,22 +79,24 @@ const LandingPage = () => {
       />
 
       {/* <img src="/jobsy-banner01.webp" alt="banner" /> */}
-      <section className="grid grid-col-1 md:grid-cols-2 gap-4">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 px-20">
         {/**cards */}
         <Card>
           <CardHeader>
             <CardTitle>For Job Seekers</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            Find your dream job, track every step, and unlock new
+            opportunities—all in one place!
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Card Title</CardTitle>
+            <CardTitle>For Employers</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            Post jobs, streamline applications, and connect with top talent
+            effortlessly!
           </CardContent>
         </Card>
       </section>
