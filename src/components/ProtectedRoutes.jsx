@@ -19,15 +19,14 @@ import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 
 const ProtectedRoutes = ({ children }) => {
-  const { isSignedIn, user, isLoaded } = useUser(); // Correct destructuring
-  const location = useLocation(); // `useLocation` returns an object, not an array
+  const { isSignedIn, user, isLoaded } = useUser();
+  const location = useLocation();
 
   if (isLoaded && !isSignedIn) {
-    // Redirect to the sign-in page if the user is not signed in
-    return <Navigate to="/?sign-in=true" state={{ from: location }} />;
+    return <Navigate to="/?sign-in=true" />;
   }
 
-  return children; // Render children if the user is signed in
+  return children;
 };
 
 export default ProtectedRoutes;
