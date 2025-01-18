@@ -7,13 +7,14 @@ import {
   SignIn,
   SignInButton,
   UserButton,
+  useUser,
 } from "@clerk/clerk-react";
 import { BriefcaseBusiness, Heart, PenBox } from "lucide-react";
 
 const Header = () => {
   const [showSignIn, setShowSignIn] = useState(false);
-
   const [search, setSearch] = useSearchParams();
+  const {user} = useUser();
 
   useEffect(() => {
     if (search.get("sign-in")) {
@@ -46,16 +47,17 @@ const Header = () => {
             </Button>
           </SignedOut>
           <SignedIn>
-            {
-              <Button
-                // size="xl"
-                className="bg-[#6459F0] text-white py-0 rounded-full hover:bg-[#4E44D3] transition duration-300"
-              >
-                <PenBox size={20} className="mr-2" />
-                Post a Job
-              </Button>
-            }
-            <Link to="/post-job"></Link>
+            {user?.unsafeMetadata?.role === "recruiter" && (
+              <Link to="/post-job">
+                <Button
+                  // size="xl"
+                  className="bg-[#6459F0] text-white py-0 rounded-full hover:bg-[#4E44D3] transition duration-300"
+                >
+                  <PenBox size={20} className="mr-2" />
+                  Post a Job
+                </Button>
+              </Link>
+            )}
             <UserButton
               appearance={{
                 elements: {
