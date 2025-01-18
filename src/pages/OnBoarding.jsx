@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useUser } from "@clerk/clerk-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { BarLoader } from "react-spinners";
 
@@ -20,6 +20,14 @@ const OnBoarding = () => {
         console.error("Failed to update user metadata:", err);
       });
   };
+
+  useEffect(() => {
+    if (user?.unsafeMetadata?.role) {
+      navigate(
+        user?.unsafeMetadata?.role === "recruiter" ? "/post-job" : "/jobs"
+      );
+    }
+  }, [user]);
 
   if (!isLoaded) {
     return <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />;
