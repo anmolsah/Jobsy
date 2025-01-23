@@ -10,7 +10,7 @@ export async function getJobs(token, {}) {
   const {data,error} =  await query;
 
   if(error) {
-    console.error("Error getting jobs:", error);
+    console.error("Error in getting jobs:", error);
     return null;
 
   }
