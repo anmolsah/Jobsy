@@ -13,7 +13,7 @@ export async function getJobs(token, {location,company_id,searchQuery) {
   }
 
   if(searchQuery){
-    query = query.ilike"title", `%${searchQuery}%`);
+    query = query.ilike("title", `%${searchQuery}%`);
   }
 
 
