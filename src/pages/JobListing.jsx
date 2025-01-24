@@ -2,6 +2,7 @@ import { getJobs } from "@/api/apijobs";
 import useFetch from "@/hooks/use-fetch";
 import { useUser } from "@clerk/clerk-react";
 import { useEffect, useState } from "react";
+import { BarLoader } from "react-spinners";
 
 const JobListing = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -11,7 +12,7 @@ const JobListing = () => {
 
   const {
     fn: fnJobs,
-    data: dataJobs,
+    data: jobs,
     loading: loadingJobs,
   } = useFetch(getJobs, {
     location,
@@ -27,11 +28,27 @@ const JobListing = () => {
     return <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />;
   }
 
-  return <div>
-    <h1 className="gradient-title font-extrabold text-6xl sm:text-7xl text-center pb-87">
-      Latest Jobs
-    </h1>
-  </div>;
+  return (
+    <div>
+      <h1 className="gradient-title font-extrabold text-6xl sm:text-7xl text-center pb-87">
+        Latest Jobs
+      </h1>
+
+      {loadingJobs && (
+        <BarLoader className="mt-4" width={"100%"} color="#36d7b7" />
+      )}
+
+      {loadingJobs === false && (
+        <div>
+          {jobs?.length ? (
+            jobs.map((job) => <JobCard key={job.id} job={job} />)
+          ) : (
+            <div>No jobs found</div>
+          )}
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default JobListing;
