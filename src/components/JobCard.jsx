@@ -43,7 +43,7 @@ const JobCard = ({
             More Details
           </Button>
         </Link>
-        <Heart size={20} stroke="red" />
+        <Heart size={20} stroke="red" fill="red" />
       </CardFooter>
     </Card>
   );
