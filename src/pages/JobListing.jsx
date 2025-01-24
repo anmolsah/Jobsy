@@ -1,7 +1,7 @@
 import { getJobs } from "@/api/apijobs";
 import useFetch from "@/hooks/use-fetch";
 import { useUser } from "@clerk/clerk-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const JobListing = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,8 +21,17 @@ const JobListing = () => {
 
   useEffect(() => {
     if (isLoaded) fnJobs();
-  }, [isLoaded]);
-  return <div>JobListing</div>;
+  }, [isLoaded, location, company_id, searchQuery]);
+
+  if (!isLoaded) {
+    return <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />;
+  }
+
+  return <div>
+    <h1 className="gradient-title font-extrabold text-6xl sm:text-7xl text-center pb-87">
+      Latest Jobs
+    </h1>
+  </div>;
 };
 
 export default JobListing;
