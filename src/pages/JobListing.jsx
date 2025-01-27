@@ -44,7 +44,7 @@ const JobListing = () => {
           {jobs?.length ? (
             jobs.map((job) => <JobCard key={job.id} job={job} />)
           ) : (
-            <div>No jobs found</div>
+            <div>No Jobs Found</div>
           )}
         </div>
       )}
