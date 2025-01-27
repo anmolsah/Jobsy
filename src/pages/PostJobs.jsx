@@ -1,6 +1,34 @@
 import React from 'react'
 
 const PostJobs = () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const jobData = {
+      title: event.target[0].value,
+      companyName: event.target[1].value,
+      // Add other form fields as needed
+    };
+
+    try {
+      const response = await fetch('/api/jobs', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(jobData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const result = await response.json();
+      console.log('Job posted successfully:', result);
+    } catch (error) {
+      console.error('Error posting job:', error);
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
       <h2 className="text-5xl font-bold text-blue-500">Post a Job</h2>
